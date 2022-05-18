@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">FixIt</string>
-    <string name="buscar_mecanico">Buscar Mecánico</string>
+    <string name="buscar_mecanico">Buscar</string>
 </resources>
