@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         //mAdapter = new RecyclerViewAdapter(productsList); *
-        // TO-DO: Create the class "RecyclerViewAdapter" and get the products list.
+        // TODO: Create the class "RecyclerViewAdapter" and get the products list.
         recyclerView.setAdapter(mAdapter);
     }
 

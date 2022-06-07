@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FixIt"
         tools:targetApi="31">
         <activity
-            android:name=".profileActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".info_pyme_product"
@@ -31,7 +31,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".profileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
