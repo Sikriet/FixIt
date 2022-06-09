@@ -35,7 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tv_productName.setText(productoList.get(position).getNombre_producto());
-        Glide.with(this.context).load("http://goo.gl/gEgYUd").into(holder.iv_productImage); //TODO: Cambiar la URL por las imagenes obtenidas de internet
+        Glide.with(this.context).load("https://assets.stickpng.com/images/580b585b2edbce24c47b2bdb.png").into(holder.iv_productImage); //TODO: Cambiar la URL por las imagenes obtenidas de internet
     }
 
     @Override

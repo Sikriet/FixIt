@@ -40,7 +40,7 @@ public class info_pyme_product extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_pyme_product);
 
-        btn_RatingComent = findViewById(R.id.btnRatingComent);
+        btn_RatingComent = findViewById(R.id.btn_search);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvMechanicsList);
 
@@ -68,17 +68,23 @@ public class info_pyme_product extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    JSONObject jsonObject = jsonArray.getJSONObject(0);
 
-                    Producto producto = new Producto();
-                    producto.setId_producto(jsonObject.getString("id_producto"));
-                    producto.setNombre_producto(jsonObject.getString("nombre_producto"));
-                    producto.setPrecio_producto(jsonObject.getString("precio_producto"));
-                    producto.setCantidad_producto(jsonObject.getString("cantidad_producto"));
-                    producto.setId_pyme(jsonObject.getString("id_pyme"));
-                    productsList.add(producto);
-                    mAdapter = new RecyclerViewAdapter(productsList, info_pyme_product.this);
-                    recyclerView.setAdapter(mAdapter);
+
+                    if (jsonArray.length() > 0) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                            Producto producto = new Producto();
+                            producto.setId_producto(jsonObject.getString("id_producto"));
+                            producto.setNombre_producto(jsonObject.getString("nombre_producto"));
+                            producto.setPrecio_producto(jsonObject.getString("precio_producto"));
+                            producto.setCantidad_producto(jsonObject.getString("cantidad_producto"));
+                            producto.setId_pyme(jsonObject.getString("id_pyme"));
+                            productsList.add(producto);
+                            mAdapter = new RecyclerViewAdapter(productsList, info_pyme_product.this);
+                            recyclerView.setAdapter(mAdapter);
+                        }
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

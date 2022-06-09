@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnRatingComent"
+        android:id="@+id/btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Valorar y Comentar"
@@ -57,7 +57,7 @@
         android:layout_marginStart="-35dp"
         android:text="Ingrese su código de boleta"
         android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintBottom_toTopOf="@+id/btnRatingComent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

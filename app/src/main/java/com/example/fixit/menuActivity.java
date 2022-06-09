@@ -1,7 +1,10 @@
 package com.example.fixit;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,10 +16,14 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class menuActivity extends AppCompatActivity implements OnMapReadyCallback{
 
+    private Button btn_search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        btn_search = findViewById(R.id.btn_search);
 
         SupportMapFragment mapFragment = SupportMapFragment.newInstance();
         getSupportFragmentManager()
@@ -24,6 +31,14 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .add(R.id.map, mapFragment)
                 .commit();
         mapFragment.getMapAsync(this);
+
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(menuActivity.this, info_pyme_product.class);
+                startActivity(i);
+            }
+        });
     }
 
     @SuppressLint("MissingPermission")

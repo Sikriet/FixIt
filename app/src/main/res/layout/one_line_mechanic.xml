@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/oneLineMechanicLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/oneLineMechanicLayout">
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
 
     <ImageView
         android:id="@+id/iv_productImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -21,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_productImage"
         app:layout_constraintStart_toEndOf="@+id/iv_productImage"
         app:layout_constraintTop_toTopOf="@+id/iv_productImage" />
 
