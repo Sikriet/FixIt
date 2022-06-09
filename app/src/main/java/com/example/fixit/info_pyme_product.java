@@ -78,7 +78,6 @@ public class info_pyme_product extends AppCompatActivity {
                             producto.setId_producto(jsonObject.getString("id_producto"));
                             producto.setNombre_producto(jsonObject.getString("nombre_producto"));
                             producto.setPrecio_producto(jsonObject.getString("precio_producto"));
-                            producto.setCantidad_producto(jsonObject.getString("cantidad_producto"));
                             producto.setId_pyme(jsonObject.getString("id_pyme"));
                             productsList.add(producto);
                             mAdapter = new RecyclerViewAdapter(productsList, info_pyme_product.this);

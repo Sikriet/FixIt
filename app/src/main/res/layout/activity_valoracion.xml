@@ -237,12 +237,9 @@
         android:id="@+id/tv_nombreVal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="319dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/comentarios" />
 
     <TextView
@@ -261,11 +258,9 @@
     <RatingBar
         android:id="@+id/ratingBar"
         style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="119dp"
+        android:layout_width="wrap_content"
         android:layout_height="15dp"
-        android:layout_marginStart="34dp"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="258dp"
         android:layout_marginBottom="8dp"
         android:isIndicator="true"
         android:max="5"
@@ -274,8 +269,7 @@
         android:rating="3"
         android:stepSize="0.5"
         app:layout_constraintBottom_toTopOf="@+id/tv_nombreVal4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_nombreVal4"
         app:layout_constraintTop_toBottomOf="@+id/tv_nombreVal" />
 
 
