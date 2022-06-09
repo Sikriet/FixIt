@@ -51,18 +51,19 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
             direccionU = "";
             passU = et_pass.getText().toString();
             pass2U = et_pass2.getText().toString();
-            if (rutU.length() > 10 & (rutU.length() < 8)) {
+            if (rutU.length() == 0 || nombreU.length() == 0 || apellidoU.length() == 0 || correoU.length() == 0 || numeroU.length() == 0 || /*direccionU.length() == 0 ||*/ passU.length() == 0 || pass2U.length() == 0) {
+                Snackbar.make(view, "Rellene todos los campos", Snackbar.LENGTH_LONG).show();
+            } else if (rutU.length() > 10 & (rutU.length() < 8)) {
                 Snackbar.make(view, "Ingrese nuevamente el RUT", Snackbar.LENGTH_LONG).show();
-            }
-            if (numeroU.length() > 9) {
+            } else if (numeroU.length() > 9) {
                 Snackbar.make(view, "Reingrese su teléfono con el siguiente formato: 9XXXXXXXX", Snackbar.LENGTH_LONG).show();
-            }
-            if (passU.isEmpty()) {
+            } else if (passU.isEmpty()) {
                 Snackbar.make(view, "Ingrese una contraseña", Snackbar.LENGTH_LONG).show();
             } else if (!passU.equals(pass2U)) {
                 Snackbar.make(view, "Las contraseñas no son iguales", Snackbar.LENGTH_LONG).show();
+            } else {
+                cargarWebService();
             }
-        cargarWebService();
     }
     private void cargarWebService() {
         try{

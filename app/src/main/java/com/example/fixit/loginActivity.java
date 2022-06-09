@@ -79,7 +79,7 @@ public class loginActivity extends AppCompatActivity{
                             Toast.makeText(getApplicationContext(), "Verifique su contraseña", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), "Usuario no existente"+e.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Usuario no existente", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
