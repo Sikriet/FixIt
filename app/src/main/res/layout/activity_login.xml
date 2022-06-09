@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".menuActivity">
+
+    <ImageView
+        android:id="@+id/fixit"
+        android:layout_width="412dp"
+        android:layout_height="150dp"
+        android:src="@drawable/vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="238dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/fixit"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="264dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/is"
+        app:layout_constraintBottom_toTopOf="@+id/et_user_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:contentDescription="TODO" />
+
+    <EditText
+        android:id="@+id/et_user_login"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint=" Rut:"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_pass_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/et_pass_login"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint=" Contraseña:"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_login" />
+
+    <ImageButton
+        android:id="@+id/btn_ingresar"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:background="#000000"
+        android:minHeight="48dp"
+        android:onClick="Ingresar"
+        android:src="@drawable/ingresar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_registrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass_login"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btn_registrar"
+        android:layout_width="185dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="#000000"
+        android:minHeight="48dp"
+        android:onClick="Registrar"
+        android:src="@drawable/registrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ingresar"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tv_hipervinculo"
+        android:layout_width="178dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="98dp"
+        android:text="Olvidé mi contraseña"
+        android:textColor="#EFCF2A"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/fixit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lbl_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fixit"
+        app:layout_constraintVertical_bias="0.564" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

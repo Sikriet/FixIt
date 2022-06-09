@@ -1,30 +1,22 @@
 package com.example.fixit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
-
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+public class menuActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu);
 
         SupportMapFragment mapFragment = SupportMapFragment.newInstance();
         getSupportFragmentManager()
@@ -32,15 +24,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .add(R.id.map, mapFragment)
                 .commit();
         mapFragment.getMapAsync(this);
-
-        recyclerView = findViewById(R.id.rvMechanicsList);
-
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        //mAdapter = new RecyclerViewAdapter(productsList); *
-        // TODO: Create the class "RecyclerViewAdapter" and get the products list.
-        recyclerView.setAdapter(mAdapter);
     }
 
     @SuppressLint("MissingPermission")

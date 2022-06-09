@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".valoracionActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="36dp">
+
+    <TextView
+        android:id="@+id/tv_fivestar4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="104dp"
+        android:textColor="#EFCF2A"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fivestar3" />
+
+    <TextView
+        android:id="@+id/tv_fivestar5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="104dp"
+        android:textColor="#EFCF2A"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pb5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fivestar4" />
+
+    <ProgressBar
+        android:id="@+id/pb5"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="134dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/pb4" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="374dp"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/valoracion" />
+
+    <TextView
+        android:id="@+id/tv_valoracion"
+        android:layout_width="236dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="4dp"
+        android:gravity="top"
+        android:lineSpacingExtra="8sp"
+        android:text="Aquí va la valoracion"
+        android:textColor="#EFCF2A"
+        android:translationY="-3.8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="76dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toStartOf="@+id/pb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_valoracion"
+        app:srcCompat="@drawable/cinco" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="28dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:srcCompat="@drawable/dos" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="44dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:srcCompat="@drawable/tres" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:srcCompat="@drawable/cuatro" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14"
+        app:srcCompat="@drawable/una" />
+
+    <ProgressBar
+        android:id="@+id/pb"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="134dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/tv_valoracion" />
+
+    <ProgressBar
+        android:id="@+id/pb2"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="134dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
+        app:layout_constraintTop_toBottomOf="@+id/pb" />
+
+    <ProgressBar
+        android:id="@+id/pb3"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="134dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/pb2" />
+
+    <ProgressBar
+        android:id="@+id/pb4"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="134dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toBottomOf="@+id/pb3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="412dp"
+        android:layout_height="150dp"
+        android:clickable="false"
+        android:src="@drawable/vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_fivestar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="104dp"
+        android:textColor="#EFCF2A"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_fivestar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="104dp"
+        android:textColor="#EFCF2A"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fivestar" />
+
+    <TextView
+        android:id="@+id/tv_fivestar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="104dp"
+        android:textColor="#EFCF2A"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fivestar2" />
+
+    <TextView
+        android:id="@+id/comentarios"
+        android:layout_width="89dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="166dp"
+        android:gravity="top"
+        android:lineSpacingExtra="8sp"
+        android:text="Comentarios"
+        android:textColor="#EFCF2A"
+        android:translationY="-3.8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb5" />
+
+    <TextView
+        android:id="@+id/tv_nombreVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="319dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comentarios" />
+
+    <TextView
+        android:id="@+id/tv_nombreVal4"
+        android:layout_width="344dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombreVal" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="119dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="258dp"
+        android:layout_marginBottom="8dp"
+        android:isIndicator="true"
+        android:max="5"
+        android:numStars="5"
+        android:progressTint="#FF9800"
+        android:rating="3"
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/tv_nombreVal4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombreVal" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

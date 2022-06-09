@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fixit">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -17,10 +18,16 @@
         android:theme="@style/Theme.FixIt"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".profileActivity"
             android:exported="false" />
         <activity
-            android:name=".info_pyme_product"
+            android:name=".menuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".valoracionActivity"
             android:exported="false" />
 
         <meta-data
@@ -31,7 +38,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".profileActivity"
+            android:name=".loginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
