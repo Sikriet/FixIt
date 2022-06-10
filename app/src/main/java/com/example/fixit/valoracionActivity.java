@@ -52,7 +52,7 @@ public class valoracionActivity extends AppCompatActivity {
     }
 
     private void cargarwebService() {
-        url = "https://supernaturalism-sho.000webhostapp.com/api/solicitudes/valoracion/valoracionPyme.php?id_pyme=" + idPyme;
+        url = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/valoracion/valoracionPyme.php?id_pyme=" + idPyme;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

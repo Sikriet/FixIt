@@ -44,7 +44,7 @@ public class profileActivity extends AppCompatActivity {
 
     public void getUserInfo() {
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        URL = "https://supernaturalism-sho.000webhostapp.com/api/solicitudes/usuario/seleccionar.php";
+        URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/seleccionar.php";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -67,7 +67,7 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
     }
     private void cargarWebService() {
         try{
-            String url="https://supernaturalism-sho.000webhostapp.com/api/solicitudes/usuario/insertar.php?rut_usuario="+rutU+
+            String url="https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/insertar.php?rut_usuario="+rutU+
                     "&nombre_usuario="+nombreU+"&apellido_usuario="+apellidoU+"&email_usuario="+correoU+
                     "&telefono_usuario="+numeroU+"&direccion_usuario="+direccionU+"&contrasena_usuario="+passU+"&estado_usuario=1";
             url = url.replace(" ","%20");

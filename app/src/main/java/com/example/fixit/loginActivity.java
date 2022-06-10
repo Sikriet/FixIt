@@ -61,7 +61,7 @@ public class loginActivity extends AppCompatActivity{
 
     private void cargarwebService() {
             request = Volley.newRequestQueue(getApplicationContext());
-            url = "https://supernaturalism-sho.000webhostapp.com/api/solicitudes/usuario/login.php?rut_usuario="+user;
+            url = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/login.php?rut_usuario="+user;
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

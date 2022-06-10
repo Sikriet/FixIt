@@ -62,7 +62,7 @@ public class info_pyme_product extends AppCompatActivity {
 
     public void getProducts() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String URL = "https://supernaturalism-sho.000webhostapp.com/api/solicitudes/producto/seleccionar.php";
+        String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/producto/seleccionar.php";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
