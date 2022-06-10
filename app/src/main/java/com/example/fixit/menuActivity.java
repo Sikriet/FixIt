@@ -42,6 +42,7 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Button btn_search;
     String addressName;
+    String pymeName;
     List<String> streetList = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
 
@@ -93,12 +94,13 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // Add Markers
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = new JSONObject(jsonArray.getJSONObject(i).toString());
-                            addressName = jsonObject.getString("name");
+                            addressName = jsonObject.getString("address_name");
+                            pymeName = jsonObject.getString("pyme_name");
                             streetList.add(addressName);
                             LatLng pymeUbication = getLocationFromAddress(getApplicationContext(), streetList.get(i));
                             Marker marker = googleMap.addMarker(new MarkerOptions()
                                     .position(pymeUbication)
-                                    .title("Nombre Pyme"));
+                                    .title(pymeName));
                             markers.add(marker);
                         }
 
