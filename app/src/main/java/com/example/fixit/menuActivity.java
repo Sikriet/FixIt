@@ -43,6 +43,7 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Button btn_search;
     String addressName;
     String pymeName;
+    String comuna_pyme;
     List<String> streetList = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
 
@@ -74,16 +75,13 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         // Set the map type to Hybrid
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        // Move the camera to the map coordinates and zoom in closer
-        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(concepcion));
-        //googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
         // Display traffic
         googleMap.setTrafficEnabled(true);
         // Button for "My Location"
         googleMap.setMyLocationEnabled(true);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String URL = "https://my-json-server.typicode.com/sikriet/cities/topics";
+        String URL = "https://fixitpage.000webhostapp.com/api/solicitudes/pyme/seleccionar.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
@@ -94,9 +92,10 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // Add Markers
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = new JSONObject(jsonArray.getJSONObject(i).toString());
-                            addressName = jsonObject.getString("address_name");
-                            pymeName = jsonObject.getString("pyme_name");
-                            streetList.add(addressName);
+                            addressName = jsonObject.getString("direccion_pyme");
+                            pymeName = jsonObject.getString("nombre_pyme");
+                            comuna_pyme = jsonObject.getString("comuna_pyme");
+                            streetList.add(addressName + ", " + comuna_pyme);
                             LatLng pymeUbication = getLocationFromAddress(getApplicationContext(), streetList.get(i));
                             Marker marker = googleMap.addMarker(new MarkerOptions()
                                     .position(pymeUbication)
