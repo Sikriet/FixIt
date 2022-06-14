@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -35,15 +37,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class menuActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class menuActivity extends AppCompatActivity implements OnMapReadyCallback, OnMarkerClickListener {
 
     private Button btn_search;
+    String id_pyme;
     String addressName;
     String pymeName;
     String comuna_pyme;
+    MyTag selected_pyme = new MyTag();
     List<String> streetList = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
 
@@ -64,7 +69,8 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(menuActivity.this, info_pyme_product.class);
+                Intent i = new Intent(getApplicationContext(), info_pyme_product.class);
+                i.putExtra("selected_pyme", (Serializable) selected_pyme);
                 startActivity(i);
             }
         });
@@ -92,6 +98,7 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // Add Markers
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = new JSONObject(jsonArray.getJSONObject(i).toString());
+                            id_pyme = jsonObject.getString("id_pyme");
                             addressName = jsonObject.getString("direccion_pyme");
                             pymeName = jsonObject.getString("nombre_pyme");
                             comuna_pyme = jsonObject.getString("comuna_pyme");
@@ -100,6 +107,10 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                             Marker marker = googleMap.addMarker(new MarkerOptions()
                                     .position(pymeUbication)
                                     .title(pymeName));
+                            if (marker != null) {
+                                MyTag myTag = new MyTag(id_pyme, pymeName);
+                                marker.setTag(myTag);
+                            }
                             markers.add(marker);
                         }
 
@@ -125,6 +136,25 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
         requestQueue.add(stringRequest);
+        googleMap.setOnMarkerClickListener(this);
+    }
+
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+
+        // Retrieve the data from the marker.
+        selected_pyme = (MyTag) marker.getTag();
+
+        // Check if a click count was set, then display the click count.
+        if (selected_pyme != null) {
+            selected_pyme.setId_pyme(selected_pyme.id_pyme);
+            selected_pyme.setPymeName(selected_pyme.pymeName);
+        }
+
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+        return false;
     }
     
     public LatLng getLocationFromAddress(Context context, String strAddress) {

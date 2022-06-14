@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,7 +33,8 @@ public class info_pyme_product extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button btn_RatingComent;
-
+    private TextView tv_pymeName;
+    MyTag selected_pyme = new MyTag();
     List<Producto> productsList = new ArrayList<Producto>();
 
     @Override
@@ -40,6 +42,7 @@ public class info_pyme_product extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_pyme_product);
 
+        tv_pymeName = findViewById(R.id.tv_pymeName);
         btn_RatingComent = findViewById(R.id.btn_search);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvMechanicsList);
@@ -49,7 +52,8 @@ public class info_pyme_product extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        getProducts();
+        selected_pyme = (MyTag) getIntent().getSerializableExtra("selected_pyme");
+        getProducts(selected_pyme.getId_pyme());
 
         btn_RatingComent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +64,9 @@ public class info_pyme_product extends AppCompatActivity {
         });
     }
 
-    public void getProducts() {
+    public void getProducts(String id_pyme) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/producto/seleccionar.php";
+        String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/producto/seleccionar.php?id_pyme=" + id_pyme;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -71,6 +75,7 @@ public class info_pyme_product extends AppCompatActivity {
 
 
                     if (jsonArray.length() > 0) {
+                        tv_pymeName.setText(selected_pyme.getPymeName());
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
