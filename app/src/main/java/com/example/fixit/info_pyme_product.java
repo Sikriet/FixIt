@@ -47,7 +47,6 @@ public class info_pyme_product extends AppCompatActivity {
         btn_RatingComent = findViewById(R.id.btn_search);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvMechanicsList);
-
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);

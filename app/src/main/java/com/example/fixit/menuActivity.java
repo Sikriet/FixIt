@@ -69,9 +69,13 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), info_pyme_product.class);
-                i.putExtra("selected_pyme", (Serializable) selected_pyme);
-                startActivity(i);
+                if (selected_pyme.getId_pyme() == null) {
+                    Toast.makeText(menuActivity.this, "Seleccione una pyme para continuar", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent i = new Intent(getApplicationContext(), info_pyme_product.class);
+                    i.putExtra("selected_pyme", (Serializable) selected_pyme);
+                    startActivity(i);
+                }
             }
         });
     }
