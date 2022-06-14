@@ -31,12 +31,14 @@ public class valoracionActivity extends AppCompatActivity {
     RequestQueue request;
     JSONObject jsonObject;
     JSONArray jsonArray;
+    MyTag selected_pyme = new MyTag();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valoracion);
-        idPyme = "1";
+        selected_pyme = (MyTag) getIntent().getSerializableExtra("selected_pyme");
+        idPyme = selected_pyme.id_pyme;
         pb1 = findViewById(R.id.pb);
         pb2 = findViewById(R.id.pb2);
         pb3 = findViewById(R.id.pb3);
@@ -66,21 +68,24 @@ public class valoracionActivity extends AppCompatActivity {
                     String nombreU = jsonObject.getString("nombre_usuario");
                     String apellidoU = jsonObject.getString("apellido_usuario");
                     String comentario = jsonObject.getString("comentario_valoracion");
-                    tvnombre.setText((nombreU) + " " + (apellidoU));
+                    String nombre_completo = nombreU + " " + apellidoU;
+                    tvnombre.setText(nombre_completo);
                     tvcomentario.setText(comentario);
                     tvnombrep.setText(nombreP);
                     rb.setRating(val);
-
-
+                    if (val == 4) {
+                        pb3.setMax(1);
+                        pb3.setProgress(1);
+                    }
                 } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "Usuario no existente" + e.toString(), Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "Error maldito = " + e.getMessage().toString());
+                    Log.d(TAG, "onResponse CATCH: " + e.toString());
+                    Toast.makeText(getApplicationContext(), "Usuario no existente", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "VOlley error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Volley error" + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         request.add(stringRequest);
