@@ -2,4 +2,9 @@
     <string name="app_name">FixIt</string>
     <string name="buscar_mecanico">Buscar</string>
     <string name="hostname">fixitpage</string>
+    <string-array name="tipos_vehiculos">
+        <item>Auto</item>
+        <item>Moto</item>
+        <item>Camion</item>
+    </string-array>
 </resources>

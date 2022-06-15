@@ -7,11 +7,23 @@
     android:background="#000000"
     tools:context=".registerActivity">
 
+    <TextView
+        android:id="@+id/tv_ingreseTipoVehiculo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccione el tipo de vehiculo"
+        android:textAlignment="center"
+        android:textColor="#EFCF2A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
     <EditText
         android:id="@+id/et_numero_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Teléfono (9XX...)"
@@ -19,7 +31,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_pass_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +41,7 @@
         android:id="@+id/et_pass_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Contraseña"
@@ -48,7 +60,6 @@
         android:id="@+id/et_pass2_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Repetir contraseña"
@@ -56,7 +67,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registrarUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +77,7 @@
         android:id="@+id/et_rut_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Rut"
@@ -74,7 +85,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +95,7 @@
         android:id="@+id/et_correo_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Correo electrónico"
@@ -93,7 +103,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_numero_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +113,7 @@
         android:id="@+id/et_apellido_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Apellido"
@@ -112,7 +121,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_rut_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +131,7 @@
         android:id="@+id/et_nombre_usuario"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Nombre"
@@ -131,7 +139,6 @@
         android:textColor="#000000"
         android:textColorHint="@color/grey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_apellido_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,9 +160,8 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="236dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginEnd="89dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:allowUndo="false"
         android:editable="true"
         android:text="El RUT debe ir sin puntos y con guión"
@@ -168,14 +174,12 @@
 
     <TextView
         android:id="@+id/tv_pymeName"
-        android:layout_width="236dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginEnd="88dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="La contraseña debe contener un caracter en mayuscula y un numero. "
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#EFCF2A"
-        app:layout_constraintBottom_toTopOf="@+id/et_pass2_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pass_usuario" />
@@ -194,7 +198,7 @@
     <ImageButton
         android:id="@+id/btn_registrarUsuario"
         android:layout_width="234dp"
-        android:layout_height="72dp"
+        android:layout_height="60dp"
         android:layout_marginStart="86dp"
         android:layout_marginEnd="91dp"
         android:background="#000000"
@@ -203,7 +207,6 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pass2_usuario"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -219,5 +222,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_registrarUsuario"
         app:layout_constraintVertical_bias="0.603" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass2_usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
