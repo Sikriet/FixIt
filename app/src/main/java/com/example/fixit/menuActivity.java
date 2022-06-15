@@ -31,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,10 +46,12 @@ import java.util.List;
 public class menuActivity extends AppCompatActivity implements OnMapReadyCallback, OnMarkerClickListener {
 
     private Button btn_search;
+    private FloatingActionButton floatActBtn_profile;
     String id_pyme;
     String addressName;
     String pymeName;
     String comuna_pyme;
+    String rut_logeado;
     MyTag selected_pyme = new MyTag();
     List<String> streetList = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
@@ -58,6 +62,8 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_menu);
 
         btn_search = findViewById(R.id.btn_search);
+        floatActBtn_profile = findViewById(R.id.floatActBtn_profile);
+        rut_logeado = getIntent().getExtras().getString("rut");
 
         SupportMapFragment mapFragment = SupportMapFragment.newInstance();
         getSupportFragmentManager()
@@ -76,6 +82,15 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                     i.putExtra("selected_pyme", (Serializable) selected_pyme);
                     startActivity(i);
                 }
+            }
+        });
+
+        floatActBtn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), profileActivity.class);
+                i.putExtra("rut", rut_logeado);
+                startActivity(i);
             }
         });
     }

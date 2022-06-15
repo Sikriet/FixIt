@@ -3,6 +3,7 @@ package com.example.fixit;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -84,8 +85,11 @@ public class loginActivity extends AppCompatActivity{
                         if (verif.equals(pass)) {
                             Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(), menuActivity.class);
+                            i.putExtra("rut", user);
                             startActivity(i);
-                            finish();
+                            et_user.setText("");
+                            et_pass.setText("");
+                            et_user.requestFocus();
                         } else {
                             Toast.makeText(getApplicationContext(), "Verifique su contraseña", Toast.LENGTH_SHORT).show();
                         }

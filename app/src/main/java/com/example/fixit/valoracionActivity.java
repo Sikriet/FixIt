@@ -33,11 +33,10 @@ public class valoracionActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private TextView tvnombre, tvcomentario, tv_valoracionPromedio;
+    private TextView tv_valoracionPromedio;
     private TextView tv_uno, tv_dos, tv_tres, tv_cuatro, tv_cinco;
     private ProgressBar pb_1, pb_2, pb_3, pb_4, pb_5;
-    private RatingBar ratingBar;
-    String url, idPyme, nombrePyme;
+    String url, idPyme;
     RequestQueue request;
     MyTag selected_pyme = new MyTag();
     List<Valoraciones> valoracionesList = new ArrayList<Valoraciones>();
@@ -61,10 +60,6 @@ public class valoracionActivity extends AppCompatActivity {
         tv_cinco = findViewById(R.id.tv_cinco);
 
         tv_valoracionPromedio = findViewById(R.id.tv_valoracion);
-
-        tvnombre = findViewById(R.id.tv_nombreVal);
-        ratingBar = findViewById(R.id.ratingBar);
-        tvcomentario = findViewById(R.id.tv_comentarioVal);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_Valoracion);
         recyclerView.setHasFixedSize(true);
@@ -111,8 +106,6 @@ public class valoracionActivity extends AppCompatActivity {
                             recyclerView.setAdapter(mAdapter);
 
                             int valoracion = Integer.parseInt(valoracionesList.get(i).getCalificacion_valoracion());
-                            boolean asd = valoracion == 1;
-                            Toast.makeText(valoracionActivity.this, "" + asd, Toast.LENGTH_SHORT).show();
                             valoracionList[i] = valoracion;
 
                             if (valoracion == 1) {
@@ -161,7 +154,6 @@ public class valoracionActivity extends AppCompatActivity {
                         tv_cinco.setText("("+cantCincoEstrellas+")");
                     }
                 } catch (JSONException e) {
-                    Log.d(TAG, "onResponse CATCH: " + e.toString());
                     Toast.makeText(getApplicationContext(), "Usuario no existente", Toast.LENGTH_SHORT).show();
                 }
             }

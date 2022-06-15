@@ -54,14 +54,14 @@
 
     <TextView
         android:id="@+id/tv_valoracion"
-        android:layout_width="236dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="4dp"
         android:gravity="top"
         android:lineSpacingExtra="8sp"
-        android:text="Aquí va la valoracion"
+        android:text="No hay valoraciones de momento"
         android:textColor="#EFCF2A"
         android:translationY="-3.8sp"
         app:layout_constraintEnd_toEndOf="parent"

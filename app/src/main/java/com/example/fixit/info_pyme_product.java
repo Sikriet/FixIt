@@ -2,6 +2,7 @@ package com.example.fixit;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -69,6 +70,7 @@ public class info_pyme_product extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/producto/seleccionar.php?id_pyme=" + id_pyme;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(String response) {
                 try {
@@ -89,6 +91,8 @@ public class info_pyme_product extends AppCompatActivity {
                             mAdapter = new RecyclerViewAdapter(productsList, info_pyme_product.this);
                             recyclerView.setAdapter(mAdapter);
                         }
+                    } else {
+                        tv_pymeName.setText("No se ha encontrado ningún servicio");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

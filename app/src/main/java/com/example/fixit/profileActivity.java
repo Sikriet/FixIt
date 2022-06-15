@@ -4,7 +4,9 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -26,8 +28,7 @@ public class profileActivity extends AppCompatActivity {
     private EditText et_apellido;
     private EditText et_rut;
     private EditText et_correo;
-    private String URL;
-    private RequestQueue requestQueue;
+    private String rut_logeado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +37,16 @@ public class profileActivity extends AppCompatActivity {
 
         et_nombre = findViewById(R.id.et_nombre);
         et_apellido = findViewById(R.id.et_apellido);
-        et_rut = findViewById(R.id.et_apellido);
+        et_rut = findViewById(R.id.et_rut);
         et_correo = findViewById(R.id.et_email);
+        rut_logeado = getIntent().getExtras().getString("rut");
 
         getUserInfo();
     }
 
     public void getUserInfo() {
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/seleccionar.php";
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/seleccionar.php?rut_usuario=" + rut_logeado;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -63,7 +65,10 @@ public class profileActivity extends AppCompatActivity {
                     userClass.setFecha_creacion(jsonObject.getString("fecha_creacion"));
                     userClass.setEstado_usuario(jsonObject.getString("estado_usuario"));
 
-                    Log.d(TAG, "onResponse: " + userClass);
+                    et_nombre.setText(userClass.getNombre_usuario());
+                    et_apellido.setText(userClass.getApellido_usuario());
+                    et_rut.setText(userClass.getRut_usuario());
+                    et_correo.setText(userClass.getEmail_usuario());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
