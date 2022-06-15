@@ -11,12 +11,11 @@
         android:id="@+id/tv_ingreseTipoVehiculo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Seleccione el tipo de vehiculo"
         android:textAlignment="center"
         android:textColor="#EFCF2A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
@@ -228,10 +227,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pass2_usuario" />
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/et_pass2_usuario"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass2_usuario"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

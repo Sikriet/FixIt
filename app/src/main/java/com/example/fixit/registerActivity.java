@@ -1,7 +1,11 @@
 package com.example.fixit;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,7 +30,7 @@ import java.util.ArrayList;
 public class registerActivity extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
     private EditText et_nombre, et_apellido, et_rut, et_correo, et_numero, et_pass, et_pass2;
     private TextView lblerror;
-    String rutU, nombreU, apellidoU, correoU, numeroU, direccionU,passU, pass2U;
+    String rutU, nombreU, apellidoU, correoU, numeroU, direccionU,passU, pass2U, tipoVehiculo;
     Spinner spinner;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -44,7 +48,7 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
         et_pass = findViewById(R.id.et_pass_usuario);
         et_pass2 = findViewById(R.id.et_pass2_usuario);
         lblerror = findViewById(R.id.lbl_error);
-        spinner = findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipos_vehiculos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -60,6 +64,8 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
             direccionU = "";
             passU = et_pass.getText().toString();
             pass2U = et_pass2.getText().toString();
+            tipoVehiculo = spinner.getSelectedItem().toString();
+            Log.d(TAG, "RegistrarUsuario: ");
             if (rutU.length() == 0 || nombreU.length() == 0 || apellidoU.length() == 0 || correoU.length() == 0 || numeroU.length() == 0 || /*direccionU.length() == 0 ||*/ passU.length() == 0 || pass2U.length() == 0) {
                 Snackbar.make(view, "Rellene todos los campos", Snackbar.LENGTH_LONG).show();
             } else if (rutU.length() > 10 & (rutU.length() < 8)) {
@@ -78,7 +84,7 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
         try{
             String url="https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/insertar.php?rut_usuario="+rutU+
                     "&nombre_usuario="+nombreU+"&apellido_usuario="+apellidoU+"&email_usuario="+correoU+
-                    "&telefono_usuario="+numeroU+"&direccion_usuario="+direccionU+"&contrasena_usuario="+passU+"&estado_usuario=1";
+                    "&telefono_usuario="+numeroU+"&direccion_usuario="+direccionU+"&contrasena_usuario="+passU+"&estado_usuario=1"+"&vehiculo_usuario="+tipoVehiculo;
             url = url.replace(" ","%20");
             //lblerror.setText(url.toString());
             jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, this, this);
@@ -104,5 +110,4 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
     public void onResponse(JSONObject response) {
         Toast.makeText(this, "No se pudo registrar ", Toast.LENGTH_SHORT).show();
     }
-
 }
