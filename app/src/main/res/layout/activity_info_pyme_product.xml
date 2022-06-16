@@ -67,10 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/white"
+        android:background="@drawable/round_rectangle"
         android:ems="10"
         android:hint="Codigo"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toTopOf="@+id/txtCodBolView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -29,7 +29,6 @@ import java.util.ArrayList;
 
 public class registerActivity extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
     private EditText et_nombre, et_apellido, et_rut, et_correo, et_numero, et_pass, et_pass2;
-    private TextView lblerror;
     String rutU, nombreU, apellidoU, correoU, numeroU, direccionU,passU, pass2U, tipoVehiculo;
     Spinner spinner;
     RequestQueue request;
@@ -47,7 +46,6 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
         et_numero = findViewById(R.id.et_numero_usuario);
         et_pass = findViewById(R.id.et_pass_usuario);
         et_pass2 = findViewById(R.id.et_pass2_usuario);
-        lblerror = findViewById(R.id.lbl_error);
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipos_vehiculos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -89,8 +87,8 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
             //lblerror.setText(url.toString());
             jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, this, this);
             request.add(jsonObjectRequest);
-        }catch (Exception e){
-        lblerror.setText(e.getMessage().toString());
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
