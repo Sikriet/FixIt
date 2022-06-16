@@ -42,126 +42,118 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Nombre"
-        android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="@+id/et_nombre"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <EditText
-        android:id="@+id/et_nombre"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/holo_orange_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Apellido"
-        android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="@+id/et_apellido"
-        app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
-
-    <EditText
-        android:id="@+id/et_apellido"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/holo_orange_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Rut"
-        android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="@+id/et_rut"
-        app:layout_constraintTop_toBottomOf="@+id/et_apellido" />
-
-    <EditText
-        android:id="@+id/et_rut"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/holo_orange_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Correo electrónico"
-        android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="@+id/et_email"
-        app:layout_constraintTop_toBottomOf="@+id/et_rut" />
-
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/holo_orange_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actualizar datos"
-        app:backgroundTint="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:background="@drawable/wave"
+        android:background="@drawable/ic_svg_waves"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nombre"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <EditText
+                android:id="@+id/et_nombre"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_rectangle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/holo_orange_light"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Apellido"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <EditText
+                android:id="@+id/et_apellido"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_rectangle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/holo_orange_light"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Rut"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <EditText
+                android:id="@+id/et_rut"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_rectangle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/holo_orange_light"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Correo electrónico"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_rectangle"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/holo_orange_light"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Actualizar datos"
+                app:backgroundTint="@android:color/holo_orange_dark" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
