@@ -2,6 +2,7 @@ package com.example.fixit;
 
 import static android.content.ContentValues.TAG;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -9,8 +10,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class profileActivity extends AppCompatActivity {
 
     private EditText et_nombre;
@@ -29,6 +37,8 @@ public class profileActivity extends AppCompatActivity {
     private EditText et_rut;
     private EditText et_correo;
     private String rut_logeado;
+    UserClass userClass = new UserClass();
+    private Button btn_update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +50,19 @@ public class profileActivity extends AppCompatActivity {
         et_rut = findViewById(R.id.et_rut);
         et_correo = findViewById(R.id.et_email);
         rut_logeado = getIntent().getExtras().getString("rut");
+        btn_update = findViewById(R.id.btn_update);
 
         getUserInfo();
+
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editUserInfo();
+                Intent i = new Intent(getApplicationContext(), menuActivity.class);
+                i.putExtra("rut", rut_logeado);
+                startActivity(i);
+            }
+        });
     }
 
     public void getUserInfo() {
@@ -53,7 +74,6 @@ public class profileActivity extends AppCompatActivity {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
-                    UserClass userClass = new UserClass();
                     userClass.setRut_usuario(jsonObject.getString("rut_usuario"));
                     userClass.setNombre_usuario(jsonObject.getString("nombre_usuario"));
                     userClass.setApellido_usuario(jsonObject.getString("apellido_usuario"));
@@ -79,6 +99,36 @@ public class profileActivity extends AppCompatActivity {
 
             }
         });
+        requestQueue.add(stringRequest);
+    }
+
+    public void editUserInfo() {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        String URL = "https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/editar.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(profileActivity.this, "Perfil editado correctamente", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }){
+            public Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("rut_usuario", rut_logeado);
+                params.put("nombre_usuario", et_nombre.getText().toString());
+                params.put("apellido_usuario", et_apellido.getText().toString());
+                params.put("email_usuario", et_correo.getText().toString());
+                params.put("telefono_usuario", userClass.getTelefono_usuario());
+                params.put("direccion_usuario", userClass.getDireccion_usuario());
+                params.put("contrasena_usuario", userClass.getContrasena_usuario());
+                params.put("vehiculo_usuario", userClass.getVehiculo_usuario());
+                return params;
+            }
+        };
         requestQueue.add(stringRequest);
     }
 }
