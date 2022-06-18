@@ -107,15 +107,15 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_Telefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Rut"
+                android:text="Telefono"
                 android:textColor="@android:color/holo_orange_light" />
 
             <EditText
-                android:id="@+id/et_rut"
+                android:id="@+id/et_telefono"
                 android:layout_width="250dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
@@ -146,11 +146,31 @@
                 android:textColorHint="@android:color/holo_orange_light"
                 tools:ignore="SpeakableTextPresentCheck" />
 
+            <TextView
+                android:id="@+id/tv_vehiculo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tipo de Vehiculo"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <Spinner
+                android:id="@+id/spinner_editVehiculo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_rectangle"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
             <Button
                 android:id="@+id/btn_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="8dp"
                 android:text="Actualizar datos"
                 app:backgroundTint="@android:color/holo_orange_dark" />
         </LinearLayout>

@@ -1,21 +1,16 @@
 package com.example.fixit;
 
-import static android.content.ContentValues.TAG;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,11 +29,12 @@ public class profileActivity extends AppCompatActivity {
 
     private EditText et_nombre;
     private EditText et_apellido;
-    private EditText et_rut;
+    private EditText et_telefono;
     private EditText et_correo;
     private String rut_logeado;
     UserClass userClass = new UserClass();
     private Button btn_update;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +43,14 @@ public class profileActivity extends AppCompatActivity {
 
         et_nombre = findViewById(R.id.et_nombre);
         et_apellido = findViewById(R.id.et_apellido);
-        et_rut = findViewById(R.id.et_rut);
+        et_telefono = findViewById(R.id.et_telefono);
         et_correo = findViewById(R.id.et_email);
         rut_logeado = getIntent().getExtras().getString("rut");
         btn_update = findViewById(R.id.btn_update);
+        spinner = (Spinner) findViewById(R.id.spinner_editVehiculo);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipos_vehiculos, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         getUserInfo();
 
@@ -87,7 +87,7 @@ public class profileActivity extends AppCompatActivity {
 
                     et_nombre.setText(userClass.getNombre_usuario());
                     et_apellido.setText(userClass.getApellido_usuario());
-                    et_rut.setText(userClass.getRut_usuario());
+                    et_telefono.setText(userClass.getTelefono_usuario());
                     et_correo.setText(userClass.getEmail_usuario());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -125,7 +125,7 @@ public class profileActivity extends AppCompatActivity {
                 params.put("telefono_usuario", userClass.getTelefono_usuario());
                 params.put("direccion_usuario", userClass.getDireccion_usuario());
                 params.put("contrasena_usuario", userClass.getContrasena_usuario());
-                params.put("vehiculo_usuario", userClass.getVehiculo_usuario());
+                params.put("vehiculo_usuario", spinner.getSelectedItem().toString());
                 return params;
             }
         };
