@@ -9,7 +9,7 @@
     tools:context=".registerActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_profileAvatar"
         android:layout_width="147dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
@@ -36,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/iv_profileAvatar"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout

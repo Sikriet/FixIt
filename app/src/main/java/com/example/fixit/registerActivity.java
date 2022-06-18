@@ -78,6 +78,7 @@ public class registerActivity extends AppCompatActivity implements Response.Erro
                 cargarWebService();
             }
     }
+    
     private void cargarWebService() {
         try{
             String url="https://" + getResources().getString(R.string.hostname) + ".000webhostapp.com/api/solicitudes/usuario/insertar.php?rut_usuario="+rutU+

@@ -11,6 +11,7 @@ public class UserClass {
     private String vehiculo_usuario;
     private String fecha_creacion;
     private String estado_usuario;
+    private String img_profileURL;
 
     public UserClass() {
         this.rut_usuario = rut_usuario;
@@ -23,9 +24,10 @@ public class UserClass {
         this.vehiculo_usuario = vehiculo_usuario;
         this.fecha_creacion = fecha_creacion;
         this.estado_usuario = estado_usuario;
+        this.img_profileURL = img_profileURL;
     }
 
-    public UserClass(String rut_usuario, String nombre_usuario, String apellido_usuario, String email_usuario, String telefono_usuario, String direccion_usuario, String contrasena_usuario, String vehiculo_usuario, String fecha_creacion, String estado_usuario) {
+    public UserClass(String rut_usuario, String nombre_usuario, String apellido_usuario, String email_usuario, String telefono_usuario, String direccion_usuario, String contrasena_usuario, String vehiculo_usuario, String fecha_creacion, String estado_usuario, String img_profileURL) {
         this.rut_usuario = rut_usuario;
         this.nombre_usuario = nombre_usuario;
         this.apellido_usuario = apellido_usuario;
@@ -36,11 +38,12 @@ public class UserClass {
         this.vehiculo_usuario = vehiculo_usuario;
         this.fecha_creacion = fecha_creacion;
         this.estado_usuario = estado_usuario;
+        this.img_profileURL = img_profileURL;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserClass{" +
                 "rut_usuario='" + rut_usuario + '\'' +
                 ", nombre_usuario='" + nombre_usuario + '\'' +
                 ", apellido_usuario='" + apellido_usuario + '\'' +
@@ -51,6 +54,7 @@ public class UserClass {
                 ", vehiculo_usuario='" + vehiculo_usuario + '\'' +
                 ", fecha_creacion='" + fecha_creacion + '\'' +
                 ", estado_usuario='" + estado_usuario + '\'' +
+                ", img_profileURL='" + img_profileURL + '\'' +
                 '}';
     }
 
@@ -132,5 +136,13 @@ public class UserClass {
 
     public void setEstado_usuario(String estado_usuario) {
         this.estado_usuario = estado_usuario;
+    }
+
+    public String getImg_profileURL() {
+        return img_profileURL;
+    }
+
+    public void setImg_profileURL(String img_profileURL) {
+        this.img_profileURL = img_profileURL;
     }
 }
