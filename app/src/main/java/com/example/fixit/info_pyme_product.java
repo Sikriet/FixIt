@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ public class info_pyme_product extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button btn_RatingComent;
+    private Button btn_llamar;
     private TextView tv_pymeName;
     MyTag selected_pyme = new MyTag();
     List<Producto> productsList = new ArrayList<Producto>();
@@ -46,6 +48,7 @@ public class info_pyme_product extends AppCompatActivity {
 
         tv_pymeName = findViewById(R.id.tv_pymeName);
         btn_RatingComent = findViewById(R.id.btn_search);
+        btn_llamar = findViewById(R.id.btn_llamar);
 
         recyclerView = (RecyclerView) findViewById(R.id.rvMechanicsList);
         recyclerView.setHasFixedSize(true);
@@ -55,6 +58,14 @@ public class info_pyme_product extends AppCompatActivity {
 
         selected_pyme = (MyTag) getIntent().getSerializableExtra("selected_pyme");
         getProducts(selected_pyme.getId_pyme());
+
+        btn_llamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + selected_pyme.getTelefono_pyme()));
+                startActivity(intent);
+            }
+        });
 
         btn_RatingComent.setOnClickListener(new View.OnClickListener() {
             @Override

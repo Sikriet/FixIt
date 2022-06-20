@@ -2,6 +2,7 @@ package com.example.fixit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+@SuppressLint("CustomSplashScreen")
 public class splashActivity extends AppCompatActivity {
 
     ProgressBar progressBar;

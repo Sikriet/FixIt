@@ -56,6 +56,7 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
     String pymeName;
     String comuna_pyme;
     String rut_logeado;
+    String telefono_pyme;
     MyTag selected_pyme = new MyTag();
     List<String> streetList = new ArrayList<>();
     ArrayList<Marker> markers = new ArrayList<>();
@@ -125,13 +126,14 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
                             addressName = jsonObject.getString("direccion_pyme");
                             pymeName = jsonObject.getString("nombre_pyme");
                             comuna_pyme = jsonObject.getString("comuna_pyme");
+                            telefono_pyme = jsonObject.getString("telefono_pyme");
                             streetList.add(addressName + ", " + comuna_pyme);
                             LatLng pymeUbication = getLocationFromAddress(getApplicationContext(), streetList.get(i));
                             Marker marker = googleMap.addMarker(new MarkerOptions()
                                     .position(pymeUbication)
                                     .title(pymeName));
                             if (marker != null) {
-                                MyTag myTag = new MyTag(id_pyme, pymeName);
+                                MyTag myTag = new MyTag(id_pyme, pymeName, telefono_pyme);
                                 marker.setTag(myTag);
                             }
                             markers.add(marker);
@@ -172,6 +174,7 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (selected_pyme != null) {
             selected_pyme.setId_pyme(selected_pyme.id_pyme);
             selected_pyme.setPymeName(selected_pyme.pymeName);
+            selected_pyme.setTelefono_pyme(selected_pyme.telefono_pyme);
         }
 
         // Return false to indicate that we have not consumed the event and that we wish

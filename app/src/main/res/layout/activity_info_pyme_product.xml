@@ -21,13 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnContact"
+        android:id="@+id/btn_llamar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contactar"
+        android:layout_marginBottom="8dp"
+        android:text="Llamar"
         android:textColorHint="@color/black"
         app:backgroundTint="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toTopOf="@+id/txtTickerCode"
+        app:icon="@drawable/ic_phone"
+        app:layout_constraintBottom_toTopOf="@+id/et_ticketCode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -63,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtTickerCode"
+        android:id="@+id/et_ticketCode"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="10dp"
@@ -82,11 +84,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="24dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btnContact"
+        app:layout_constraintBottom_toTopOf="@+id/btn_llamar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pymeName"
         app:layout_constraintVertical_bias="0.0" />
