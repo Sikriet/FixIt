@@ -31,6 +31,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -109,6 +110,9 @@ public class menuActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setTrafficEnabled(true);
         // Button for "My Location"
         googleMap.setMyLocationEnabled(true);
+        // Button for "Zoom"
+        UiSettings uiSettings = googleMap.getUiSettings();
+        uiSettings.setZoomControlsEnabled(true);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String URL = "https://fixitpage.000webhostapp.com/api/solicitudes/pyme/seleccionar.php";
