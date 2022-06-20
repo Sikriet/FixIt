@@ -33,10 +33,7 @@ public class loginActivity extends AppCompatActivity{
     private TextView lblerror;
     String url, user, pass;
     RequestQueue request;
-    JSONObject jsonObject;
-    Usuarios usu;
-    private ArrayList<Usuarios>  listaU = new ArrayList<>();
-    private String keyUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +65,6 @@ public class loginActivity extends AppCompatActivity{
         }catch (Exception e){
             lblerror.setText(e.getMessage().toString());
             }
-
     }
 
     private void cargarwebService() {
